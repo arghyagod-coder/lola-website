@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>lolacli - A Simple CLI App Installer for Linux</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/png" href="https://lh3.googleusercontent.com/-l82JPGBOhvo/YLYgH6VTaCI/AAAAAAAAAcI/UWpjxI393vEEWZsb_kc-H3kqW2s_veX-QCLcBGAsYHQ/lola_icon.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Ubuntu&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fira+Sans&family=Indie+Flower&family=Kalam&family=Limelight&family=Pacifico&family=Pattaya&family=Roboto+Slab:wght@300&family=Rubik&family=Squada+One&family=Staatliches&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-size: 17px;
+      line-height: 1.6;
+      /* font-family: 'JetBrains Mono', monospace; */
+      /* font-family: 'Odibee Sans', cursive; */
+      font-family: 'Ubuntu', sans-serif; 
+      /* font-family: 'Dancing Script', cursive; */
+      /* font-family: 'Fira Sans', sans-serif; */
+      /* font-family: 'Indie Flower', cursive; */
+      /* font-family: 'Kalam', cursive; */
+      /* font-family: 'Limelight', cursive; */
+      /* font-family: 'Pacifico', cursive; */
+      /* font-family: 'Pattaya', sans-serif; */
+      /* font-family: 'Roboto Slab', serif; */
+      /* font-family: 'Rubik', sans-serif; */
+      /* font-family: 'Squada One', cursive; */
+      /* font-family: 'Staatliches', cursive; */
+    }
+
+    .icon {
+      width: 30px;
+    }
+
+    .mb-8 {
+      text-align: left;
+    }
+
+    
+  </style>
+  <style>
+    /* Style the video: 100% width and height to cover the entire window */
+    #myVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    #stick {
+      position: sticky;
+      top: 0px;
+    }
+
+    #mainname {
+      color: gray;
+    }
+
+    #mainname:hover {
+      color: yellow;
+      font-style: italic;
+      border: 2px;
+      border-color: gray;
+
+    }
+
+    #base {
+      font-size: 10;
+      color: aqua;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+  </style>
+
+
+
+</head>
+
+<body>
+  <header id="stick" class="text-gray-200 bg-gray-800 body-font">
+    <div class="container mx-auto flex flex-wrap p-1 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-2 md:mb-0">
+        <img class=icon src="https://lh3.googleusercontent.com/-l82JPGBOhvo/YLYgH6VTaCI/AAAAAAAAAcI/UWpjxI393vEEWZsb_kc-H3kqW2s_veX-QCLcBGAsYHQ/lola_icon.png" alt="icon">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full"
+          viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg> -->
+        <span class="ml-2 text-xl">lola-cli</span>
+      </a>
+      <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-white" id="mainname" href='#'>Home</a>
+        <a class="mr-5 hover:text-white" id="mainname" href='#about'>About Us</a>
+        <a class="mr-5 hover:text-white" id="mainname"  href='#distro'>Supported Distributions</a>
+        <a class="mr-5 hover:text-white" id="mainname"  href="https://github.com/arghyagod-coder/lola">GitHub Repo</a>
+        <a class="mr-5 hover:text-white" id="mainname"  href="https://pypi.org">PyPi</a>
+        <a class="mr-5 hover:text-white" id="mainname" href="#contact">Contact Us</a>
+      </nav>
+      <button class="inline-flex items-center bg-gray-700 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-2 md:mt-0">Get Started
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <br>
+  <hr>
+  <br>
+  <!-- <video autoplay muted loop id="myVideo">
+    <source src="https://photos.google.com/u/1/photo/AF1QipM8W_XbsFBUbyyhX46RflwZ4BXNdH01WXoiWNDi" type="video/mp4">
+  </video> -->
+  <img id="myVideo" src="../static/images/bg3.jpeg" alt="">
+  </div>
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-3 py-17 md:flex-row flex-col items-center">
+      <div
+        class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" style="text-align: left;" style="font-size: 21;">lolacli 0.2.3
+          <br>
+          <br>
+        <br class="hidden lg:inline-block">Installing software in Linux made fast and easy!
+        </h1>
+        <p class="mb-8 leading-relaxed"><strong>lola is made for linux users who want to download software fast and
+            easy!</strong></p>
+        <div class="flex justify-center">
+          <button
+            class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Get
+            Started</button>
+          <a href="docs.html"
+            class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">Docs</a>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded" alt="hero"
+          src="https://cdn.pixabay.com/photo/2014/03/24/10/46/tux-293844_960_720.png">
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <hr>
+  <br>
+
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+      <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://lh3.googleusercontent.com/-l82JPGBOhvo/YLYgH6VTaCI/AAAAAAAAAcI/UWpjxI393vEEWZsb_kc-H3kqW2s_veX-QCLcBGAsYHQ/lola_icon.png">
+      <div class="text-center lg:w-2/3 w-full">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white"><code>lolacli</code></h1>
+        <p class="leading-relaxed mb-8">lola is made for linux users who want to download software fast and easy! <br> <br>
+          Now many will ask, Why use lola when we have those software managers?
+          <br><br>
+          Well, lola is a Command Line Interface and is used inside the terminal. And as we know, terminal downloads are way more faster than the software managers. While many softwares can be downloaded with a single sudo apt install, most common ones need some more commands.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">GitHub</button>
+          <button class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">PyPi.org</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br>
+  <hr>
+  <br>
+
+  <section class="text-gray-400 body-font bg-gray-900">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white" id="distro">Supported Distributions</h1>
+        <p class="lg:w-1/2 w-full leading-relaxed text-opacity-80">Lola doesn't support all distributions till now <br> <br>lola currently uses the apt software manager ONLY.</p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://www.shareicon.net/data/2015/09/16/101872_debian_512x512.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://ubuntu.com/">Debian 10+ and Derivatives</a></h2>
+            <p class="leading-relaxed text-base">Debian is an operating system and a distribution of Free Software. It is maintained and updated through the work of many users who volunteer their time and effort.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Logo-ubuntu_cof-white_orange-hex.svg/1024px-Logo-ubuntu_cof-white_orange-hex.svg.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://ubuntu.com/">Ubuntu 20.04+ and Derivatives</a></h2>
+            <p class="leading-relaxed text-base">Ubuntu is the modern, open source operating system on Linux for the enterprise server, desktop, cloud, and IoT.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Linux_Mint_logo_without_wordmark.svg/1029px-Linux_Mint_logo_without_wordmark.svg.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://linuxmint.com/">Linux Mint 20.1+</a></h2>
+            <p class="leading-relaxed text-base">Linux Mint is a free Linux-based operating system designed for use on desktop computers.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Pop_OS-Logo-nobg.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://pop.system76.com/">Pop!_OS 20.04 LTS+</a></h2>
+            <p class="leading-relaxed text-base">Pop!_OS is an operating system for STEM and creative professionals who use their computer as a tool to discover and create. Unleash your potential on secure, reliable open source software. Based on your exceptional curiosity, we sense you have a lot of it.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://wiki.installgentoo.com/images/3/3f/Elementaryos-logo.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://elementary.io">Elementary OS</a></h2>
+            <p class="leading-relaxed text-base">elementary OS is designed to be easy to understand and pick up as a new user. But that doesn't mean it's dumbed down; powerful, customizable keyboard shortcuts ensure you'll stay productive whether it's your first day or your thousandth.</p>
+          </div>
+        </div>
+        <div class="xl:w-1/3 md:w-1/2 p-4">
+          <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Zorin_OS.svg/1024px-Zorin_OS.svg.png" alt="" width="80"><br><br>
+            <h2 class="text-lg text-white font-medium title-font mb-2"><a id="base" href="https://zorinos.com">Zorin OS</a></h2>
+            <p class="leading-relaxed text-base">Zorin OS is designed to be easy, so you won't need to learn anything to get started. The Zorin Appearance app lets you change the desktop to resemble the environment you're familiar with, whether it's Windows, macOS, or Linux. Rock solid & reliable.</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <br>
+  <hr>
+  <br>
+
+  <section class="text-gray-400 body-font bg-gray-900">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Packages used in this project</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">lolacli is built in python, and the python packages used in development are listed below</p>
+      </div>
+      <div class="flex flex-wrap">
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
+          <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">Click</h2>
+          <p class="leading-relaxed text-base mb-4">Click is a Python package for creating beautiful command line
+            interfaces in a composable way with as little code as necessary. It’s the “Command Line Interface Creation
+            Kit”. It’s highly configurable but comes with sensible defaults out of the box.</p>
+          <a class="text-yellow-400 inline-flex items-center" href="https://click.palletsprojects.com/en/8.0.x/">Learn
+            More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
+          <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">subprocess</h2>
+          <p class="leading-relaxed text-base mb-4">The subprocess module allows you to spawn new processes, connect to
+            their input/output/error pipes, and obtain their return codes. This module intends to replace several older
+            modules and functions like <code>os.spawn</code> and <code>os.system</code></p>
+          <a class="text-yellow-400 inline-flex items-center"
+            href="https://docs.python.org/3/library/subprocess.html#">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
+          <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">requests</h2>
+          <p class="leading-relaxed text-base mb-4">Requests is an elegant and simple HTTP library for Python, built for
+            human beings. Requests allows you to send HTTP/1.1 requests extremely easily. There’s no need to manually
+            add query strings to your URLs, or to form-encode your POST data. Keep-alive and HTTP connection pooling are
+            100% automatic, thanks to urllib3. </p>
+          <a class="text-yellow-400 inline-flex items-center"
+            href="https://docs.python-requests.org/en/master/index.html">Learn More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-800">
+          <h2 class="text-lg sm:text-xl text-white font-medium title-font mb-2">os</h2>
+          <p class="leading-relaxed text-base mb-4">This module provides a portable way of using operating system
+            dependent functionality. If you just want to read or write a file see open(), if you want to manipulate
+            paths, see the os.path module, and if you want to read all the lines in all the files on the command line
+            see the fileinput module. For creating temporary files and directories see the tempfile module, and for
+            high-level file and directory handling see the shutil module.</p>
+          <a class="text-yellow-400 inline-flex items-center" href="https://docs.python.org/3/library/os.html">Learn
+            More
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</body>
+
+</html>
