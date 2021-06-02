@@ -9,7 +9,7 @@ def home():
 
 @app.route('/docs')
 def docs():
-    return render_template('docs.html')
+    return render_template('test.html')
 
 if __name__=='__main__':
 	app.run(debug=True, port=8000)
