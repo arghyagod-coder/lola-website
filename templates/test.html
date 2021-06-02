@@ -197,30 +197,33 @@
             display: none;
         }
     }
+    #headsb {
+        font-size: 24px;
+    }
+    /* #codeline {
+        background-color: white;
+    } */
+
+    pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 20px;
+        text-align: left;
+}
 </style>
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+                <h3 id="headsb"><strong><code>lolacli</code></strong> Documentation</h3>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li class="active">
+                <p>Index</p>
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#">About</a>
@@ -314,17 +317,29 @@
             <section class="text-gray-400 bg-gray-900 body-font">
                 <div id="tb" class="container mx-auto flex px-5 py-24 items-left justify-center flex-col">
                     <h2><strong>lolacli 0.2.3</strong></h2>
-                    <p><strong>lolacli is a package made for Linux Users (specially newbies). Its written in python and is a CLI which allows you to install/download linux packages/applications/software easily without any excessive commands. </strong></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><strong>lolacli is a package made for Linux Users (specially newbies). Its written in python and is a CLI which allows you to install/download linux packages/applications/software easily without any excessive commands. The latest version 0.2.3 has the largest app support and we recommend users to use the latest version only. lola uses the <code>click</code> module for designing the base Command Line Interface</strong></p>
+                    <p>Why use lolacli when we have those software managers preinstalled in most of our distributions? <br><br> Because graphical software managers are slow! Yes, they are slow. They are definitely slower than the terminal downloads through package managers like <a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool">APT (Advanced Package Tool)</a>, <a href="https://en.wikipedia.org/wiki/DNF_(software)">DNF (Dandified YUM}</a>,  <a href="https://en.wikipedia.org/wiki/Flatpak">Flatpak</a> etc.
+                    Hence, <code>lolacli</code> package now brings to you an easy, fast and efficient way of installing software! Currently it supports only the distributions which are debian-based and use apt software manager.
+                    In future we will try to add more support and make lola use other software managers too. <br><br> This project targets Beginner and Advanced Linux Users who don't wanna spend time on adding repositories and installing software with 3 and 4 commands. We will surely improve the product as time passes (if any faults are found)
+                    <br><br> Example: <br><br> <strong>Installing Firefox in Ubuntu:</strong><br><br>Manual Way: <br><div id="codeline">
+                    <pre><code><strong>$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
+$ sudo apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu focal main"
+$ sudo apt update
+$ sudo apt install firefox</strong></code></pre>
+                    </div>
+                    <br>
+                    <br>
+                    <p>The lola Way:</p> 
+                    <br><br><div id="codeline">
+                    <pre><code><strong>$ lola install firefox</strong></code></pre></div></p>
                 </div>
             </section>
                     <div class="line"></div>
 
             <section class="text-gray-400 bg-gray-900 body-font">
                 <div id="tb" class="container mx-auto flex px-3 py-24 items-left justify-center flex-col">
-                    <h2><strong>lolacli 0.2.3</strong></h2>
-                    <p><strong>lolacli is a package made for Linux Users (specially newbies). Its written in python and is a CLI which allows you to install/download linux packages/applications/software easily without any excessive commands. </strong></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h2><strong>For Contributors/Developers</strong></h2>
+                    <p><strong>Check out the Contributors page by clicking the <code><strong>Developers</strong></code> button on the top left of the webpage</strong></p>
                 </div>
             </section>
                     <div class="line"></div>
@@ -349,9 +364,11 @@
     </div>
 </body>
 <script>
-    $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+    var x = document.getElementById('sidebarCollapse')
+    var y = document.getElementById('sidebar')
+    (document).ready(function () {
+            (x).on('click', function () {
+                (y).toggleClass('active');
             });
         });
 </script>
